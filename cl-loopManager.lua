@@ -52,6 +52,10 @@ end
 ---@param name string Unique identifier of the loop
 ---@return nil
 function loop.destroy(name)
+    local l = loops[name]
+    if not l then return end
+
+    l.running = false
     loops[name] = nil
 end
 
